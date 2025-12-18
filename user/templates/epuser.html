@@ -1,0 +1,83 @@
+{% load static %} {% include 'userheader.html' %} {% include 'usernav.html' %}
+
+<div id="page">
+  <div class="box">
+    <h2>Edit Profile Here!!!</h2>
+
+    <font color="blue">{{output}}</font>
+    <form method="post" action="/user/epuser/">
+      {% csrf_token %}
+      <table cellspacing="10">
+        <tr>
+          <td><label>Name</label></td>
+          <td>
+            <input
+              class="inputf"
+              type="text"
+              name="name"
+              value="{{user.name}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Email</label></td>
+          <td>
+            <input
+              class="inputf"
+              type="text"
+              name="email"
+              value="{{user.email}}"
+              readonly
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Mobile</label></td>
+          <td>
+            <input
+              class="inputf"
+              type="text"
+              name="mobile"
+              placeholder="Enter Mobile"
+              value="{{user.mobile}}"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Address</label></td>
+          <td>
+            <textarea rows="7" cols="54" type="text" name="address">
+{{user.address}}</textarea
+            >
+          </td>
+        </tr>
+        <tr>
+          <td><label>City</label></td>
+          <td>
+            <select class="inputf" name="city">
+              <option>{{user.city}}</option>
+              <option>Indore</option>
+              <option>Bhopal</option>
+              <option>Ujjain</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label>Gender</label></td>
+          <td>
+            Male
+            <input type="radio" {{m}} name="gender" value="male" /> &nbsp;&nbsp;
+            Female <input type="radio" {{f}} name="gender" value="female" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><input id="btn" type="submit" value="Update" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <br class="clearfix" />
+</div>
+
+{% include 'userfooter.html' %}

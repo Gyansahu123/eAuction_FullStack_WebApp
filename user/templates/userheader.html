@@ -1,0 +1,48 @@
+{% comment %}
+<!-- templates/user/header.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Panel | eAuction</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <header class="u-header">
+      <div class="u-container">
+        <h2>eAuction - User Panel</h2>
+        <a href="" class="btn-logout">Logout</a>
+      </div>
+    </header>
+    <!-- templates/admin/header.html -->
+    {% endcomment %} {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>eAuction User Panel</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'user.css' %}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {% comment %}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+          rel="stylesheet"
+          type="text/javascript"
+        />
+        <script
+          src="https://kit.fontawesome.com/a2d9a64d15.js"
+          crossorigin="anonymous"
+        ></script>
+        {% endcomment %}
+      </head>
+      <body>
+        <header class="admin-header">
+          <div class="logo">
+            <h2>eAuction <span>User Panel</span></h2>
+          </div>
+        </header>
+      </body>
+    </html>
+  </body>
+</html>

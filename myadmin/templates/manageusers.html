@@ -1,0 +1,166 @@
+{% load static %} {% include 'adminheader.html' %} {% include 'adminnav.html' %}
+{% comment %}
+<div
+  id="page"
+  style="
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+  "
+>
+  <div
+    class="box"
+    style="
+      background-color: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <h2 style="color: #2c3e50; margin-bottom: 20px">
+      👥 View & Manage User Details
+    </h2>
+
+    <table
+      style="
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: 15px;
+        background-color: #ffffff;
+      "
+    >
+      <thead style="background-color: #007bff; color: white">
+        <tr>
+          <th style="padding: 12px">RegID</th>
+          <th style="padding: 12px">Name</th>
+          <th style="padding: 12px">Email</th>
+          <th style="padding: 12px">Password</th>
+          <th style="padding: 12px">Mobile</th>
+          <th style="padding: 12px">Address</th>
+          <th style="padding: 12px">City</th>
+          <th style="padding: 12px">Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in users %}
+        <tr style="border-bottom: 1px solid #ddd">
+          <td style="padding: 10px">{{ row.regid }}</td>
+          <td style="padding: 10px">{{ row.name }}</td>
+          <td style="padding: 10px">{{ row.email }}</td>
+          <td style="padding: 10px">{{ row.password }}</td>
+          <td style="padding: 10px">{{ row.mobile }}</td>
+          <td style="padding: 10px">{{ row.address }}</td>
+          <td style="padding: 10px">{{ row.city }}</td>
+          <td style="padding: 10px">{{ row.gender }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="10" style="padding: 15px; color: gray">
+            {% if row.status %}
+            <font color="green"><b>Verified</b></font>
+            {% else %}
+            <font color="orange"><b>Blocked</b></font>
+            {% endif %}
+          </td>
+          <td>
+            {% if row.status %}
+            <a
+              style="color: blue; text-decoration: none"
+              href="/myadmin/manageuserstatus/?s=block&regid={{row.regid}}"
+              >Change Status</a
+            >
+            {% else %}
+            <a
+              style="color: blue; text-decoration: none"
+              href="/myadmin/manageuserstatus/?s=verify&regid={{row.regid}}"
+              >Change Status</a
+            >
+            {% endif %}
+            <br />
+            <a
+              style="color: red; text-decoration: none"
+              href="/myadmin/manageuserstatus/?s=delete&regid={{row.regid}}"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <br class="clearfix" />
+</div>
+{% endcomment %}
+
+<div id="page">
+  <div class="box">
+    <h2>View & Manage Users Details</h2>
+
+    <table cellspacing="10">
+      <tr>
+        <th>RegID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td colspan="10"><hr /></td>
+      </tr>
+      {% for row in users %}
+      <tr>
+        <td>{{row.regid}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.password}}</td>
+        <td>{{row.mobile}}</td>
+        <td>{{row.address}}</td>
+        <td>{{row.city}}</td>
+        <td>{{row.gender}}</td>
+        <td>
+          {% if row.status %}
+          <font color="green"><b>Verified</b></font>
+          {% else %}
+          <font color="orange"><b>Blocked</b></font>
+          {% endif %}
+        </td>
+        <td>
+          {% if row.status %}
+          <a
+            style="color: blue; text-decoration: none"
+            href="/myadmin/manageuserstatus/?s=block&regid={{row.regid}}"
+            >Change Status</a
+          >
+          {% else %}
+          <a
+            style="color: blue; text-decoration: none"
+            href="/myadmin/manageuserstatus/?s=verify&regid={{row.regid}}"
+            >Change Status</a
+          >
+          {% endif %}
+          <br />
+          <a
+            style="color: red; text-decoration: none"
+            href="/myadmin/manageuserstatus/?s=delete&regid={{row.regid}}"
+            >Delete</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td colspan="10"><hr /></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  <br class="clearfix" />
+</div>
+
+{% include 'adminfooter.html' %}

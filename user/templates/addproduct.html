@@ -1,0 +1,56 @@
+{% load static %} {% include 'userheader.html' %} {% include 'usernav.html' %}
+{% block content %}
+<h2>Add Product Here!!!</h2>
+<font color="white">{{output}}</font>
+<form method="post" action="/user/addproduct/" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table cellspacing="5" cellpadding="10">
+    <tr>
+      <td>Title</td>
+      <td>
+        <input type="text" name="title" placeholder="Enter product title" />
+      </td>
+    </tr>
+    <tr>
+      <td>Category</td>
+      <td>
+        <select style="width: 90%" name="subcatname">
+          <option>Select Category</option>
+          {% for row in sclist %}
+          <option>{{row.subcatname}}</option>
+          {% endfor %}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>
+        <textarea
+          name="description"
+          rows="5"
+          cols="32"
+          placeholder="Enter product description"
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>Base Price</td>
+      <td>
+        <input
+          type="text"
+          name="baseprice"
+          placeholder="Enter product base price"
+        />
+      </td>
+    </tr>
+    <tr>
+      <td>Product Icon</td>
+      <td><input type="file" name="picon" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Add Product" /></td>
+    </tr>
+  </table>
+</form>
+
+{% endblock content %}

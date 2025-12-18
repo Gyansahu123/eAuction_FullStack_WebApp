@@ -1,0 +1,31 @@
+{% load static %} {% include 'userheader.html' %} {% include 'usernav.html' %}
+{% block content %}
+<style>
+  #category_main {
+    height: auto;
+    width: 600px;
+  }
+  .category_part {
+    height: 150px;
+    width: 200px;
+    float: left;
+    color: white;
+  }
+</style>
+
+<h1>Category >></h1>
+<center>
+  <div id="category_main">
+    {% for row in clist %}
+    <a href="/user/viewsubcategory/?cnm={{row.catname}}">
+      <div class="category_part">
+        <img src="{{MEDIA_URL}}{{row.caticon}}" height="100" width="150" />
+        <br />
+        <b>{{row.catname}}</b>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</center>
+
+{% endblock content %}

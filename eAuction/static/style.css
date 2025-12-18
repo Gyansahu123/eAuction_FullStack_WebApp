@@ -1,0 +1,260 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  background: #f4f6f9;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #007BFF;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  margin-bottom: 0.75em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+p, ul {
+  margin-bottom: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* HEADER */
+#header {
+  background: linear-gradient(to right, #1f4037, #99f2c8);
+  padding: 30px 45px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+#slogan h2 {
+  font-size: 1.1em;
+  color: #f1f1f1;
+}
+
+/* MENU */
+#menu {
+  background: linear-gradient(to right, #2193b0, #6dd5ed);
+  padding: 15px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menu ul {
+  display: flex;
+  gap: 20px;
+}
+
+#menu ul li {
+  display: inline-block;
+}
+
+#menu ul li a {
+  color: #fff;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+#menu ul li a:hover, #menu ul li.active a {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* CONTENT */
+#page {
+  padding: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#content, #content-box1, #content-box2, #page-bottom-content {
+  flex: 1 1 60%;
+  min-width: 280px;
+}
+
+#sidebar, #page-bottom-sidebar {
+  flex: 1 1 30%;
+  min-width: 250px;
+}
+
+.box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  margin-bottom: 1.5em;
+}
+
+/* SLIDER */
+#slider {
+  margin: 0 45px 30px 45px;
+}
+
+#slider .viewer {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 250px;
+}
+
+#slider .slide {
+  height: 250px;
+  padding: 20px;
+  background: #e0f7fa;
+}
+
+#slider .indicator {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#slider .indicator span {
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+#slider .indicator span.active {
+  background: #007BFF;
+}
+
+/* FOOTER */
+#footer {
+  background: #343a40;
+  color: #ccc;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.95em;
+  border-radius: 0 0 12px 12px;
+}
+
+#footer a {
+  color: #66cfff;
+}
+
+/* PAGE BOTTOM */
+#page-bottom {
+  background: #2e2e2e;
+  color: #eee;
+  padding: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#page-bottom ul li {
+  border-top: 1px solid #555;
+  padding: 10px 0;
+}
+
+#page-bottom h2, #page-bottom h3, #page-bottom h4 {
+  color: #fff;
+}
+
+/* FORM ELEMENTS */
+input[type="text"], input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(to right, #5b86e5, #36d1dc);
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  #header, #menu, #page, #page-bottom, #footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #page, #page-bottom {
+    padding: 20px;
+  }
+
+  #menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #slider, #wrapper {
+    margin: 30px 10px;
+    width: auto;
+  }
+
+  #content, #sidebar, #content-box1, #content-box2 {
+    flex: 1 1 100%;
+  }
+}
+
+/* maine jo lagaya */

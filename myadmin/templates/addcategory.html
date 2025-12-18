@@ -1,0 +1,26 @@
+{% load static %} {% include 'adminheader.html' %} {% include 'adminnav.html' %}
+
+{% block content %}    
+<h2>Add Category Here!!!</h2>
+<font color="blue">{{output}}</font>
+<form method="POST" action="/myadmin/addcategory/" enctype="multipart/form-data"  >
+    
+{% csrf_token %}    
+<table cellspacing="10">
+<tr>
+<td>Category Name</td>
+<td><input type="text" name="catname" placeholder="Enter Category Name" required /></td>    
+</tr>    
+<tr>
+<td>Category Icon</td>
+<td><input type="file" name="caticon" required /></td>    
+</tr>
+<tr>
+<td><input type="submit" name="s" value="Add Category" /></td>    
+</tr>
+</table>    
+</form>
+{% endblock content %} 
+
+
+

@@ -1,0 +1,60 @@
+{% load static %}
+{% include 'userheader.html' %}
+{% include 'usernav.html' %}
+
+
+
+	
+
+<div id="page">
+  <div class="box">
+    <h2>Change Password Here!!!</h2>
+
+    <font style="font-size: 20px" color="blue">{{output}}</font>
+    <form method="post" action="/user/cpuser/">
+      {% csrf_token %}
+      <table cellspacing="10">
+        <tr>
+          <td><label>Old Password</label></td>
+          <td>
+            <input
+              type="password"
+              name="opass"
+              placeholder="Enter old password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label>New Password</label></td>
+          <td>
+            <input
+              type="password"
+              name="npass"
+              placeholder="Enter new password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><label>Confirm New Password</label></td>
+          <td>
+            <input
+              type="password"
+              name="cnpass"
+              placeholder="Enter confirm new password"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><input type="submit" value="Change Password" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <br class="clearfix" />
+</div>
+
+
+
+
+{% include 'userfooter.html' %}

@@ -1,0 +1,40 @@
+<!-- templates/admin/home.html -->
+{% load static %} {% include 'adminheader.html' %} {% include 'adminnav.html' %}
+
+<main class="admin-dashboard">
+ <div style="
+  background: #f5f7fa;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  max-width: 900px;
+  margin: 40px auto;
+">
+  <h2 style="font-size: 2.2rem; color: #2c3e50; margin-bottom: 15px;">
+     Welcome to <span style="color: #007bff;">eAuction</span> Admin Panel
+  </h2>
+  <p style="text-align: justify; font-size: 1.05rem; line-height: 1.8;">
+    You are now in the control center of the eAuction platform. As an administrator, you have full access to manage users, sellers, auction products, bids, and reports.
+    <br><br>
+    Use the sidebar to navigate between modules and take full control of:
+    <ul style="margin-left: 20px; line-height: 1.7;">
+      <li> Managing and verifying seller and buyer accounts</li>
+      <li> Approving or rejecting auction product listings</li>
+      <li> Monitoring live bidding activity</li>
+      <li> Generating sales and performance reports</li>
+      <li> Ensuring fair and secure auctions across the platform</li>
+    </ul>
+    <br>
+    Keep the platform running smoothly and fairly. Your actions help create a transparent and trustworthy bidding experience for all users.
+    <br><br>
+    <strong>Let’s make every bid count. Happy Administering! </strong>
+  </p>
+</div>
+
+
+
+ 
+
+{% include 'adminfooter.html' %}

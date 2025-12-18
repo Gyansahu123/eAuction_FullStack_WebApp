@@ -1,0 +1,32 @@
+{% load static %} {% include 'userheader.html' %} {% include 'usernav.html' %}
+{% block content %}
+
+<h1>Product >> {{cnm}} >> {{scnm}}</h1>
+{% for row in plist %}
+<table border="2" height="150" width="100%">
+  <tr>
+    <td width="35%" rowspan="3">
+      <center>
+        <img src="{{MEDIA_URL}}{{row.picon}}" height="100" width="200" />
+      </center>
+    </td>
+    <td>
+      <b>Product Title : {{row.title}}</b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Product Description : {{row.description}}</b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Base Price : {{row.baseprice}}</b>
+      <br />
+      <a href="/user/bid/?pid={{row.pid}}">Click to make BID</a>
+    </td>
+  </tr>
+</table>
+<br /><br />
+{% endfor %} 
+{% endblock content %}

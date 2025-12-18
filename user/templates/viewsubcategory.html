@@ -1,0 +1,70 @@
+{% load static %} {% include 'userheader.html' %} {% include 'usernav.html' %}
+{% block content %}
+<style>
+  #mycontent {
+    height: auto;
+    width: 100%;
+  }
+  #mycontent_part1 {
+    height: 100%;
+    width: 70%;
+    float: left;
+  }
+  #mycontent_part2 {
+    height: 100%;
+    width: 30%;
+    float: right;
+  }
+  #mycontent_part2 ul li a {
+    color: white;
+    font-size: 20px;
+  }
+  #category_main {
+    height: auto;
+    width: 450px;
+  }
+  .category_part {
+    height: 150px;
+    width: 150px;
+    float: left;
+    color: white;
+  }
+</style>
+
+<div id="mycontent">
+  <div id="mycontent_part1">
+    <h1>SubCategory >> {{cnm}}</h1>
+    <center>
+      <div id="category_main">
+        {% for row in sclist %}
+        <a href="/user/viewproduct/?cnm={{cnm}}&scnm={{row.subcatname}}">
+          <div class="category_part">
+            <img
+              src="{{MEDIA_URL}}{{row.subcaticon}}"
+              height="100"
+              width="100"
+            />
+            <br />
+            <b>{{row.subcatname}}</b>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </center>
+  </div>
+  <div id="mycontent_part2">
+    <h1>Category List</h1>
+    <ul>
+      {% for c_row in clist %}
+      <li>
+        <a href="/user/viewsubcategory/?cnm={{c_row.catname}}">
+          {{c_row.catname}}
+        </a>
+      </li>
+      <br />
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock content %} 

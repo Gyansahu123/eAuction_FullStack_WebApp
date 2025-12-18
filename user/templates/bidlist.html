@@ -1,0 +1,33 @@
+{% load static %}
+{% include 'userheader.html' %}
+{% include 'usernav.html' %}
+
+{% block content %}    
+
+<center>
+    <h1>View Bidding History</h1>
+    <table border="1" cellspacing="5" cellpadding="10">
+    <tr>
+    <th>BiddingID</th>
+    <th>ProductID</th>
+    <th>UserID</th>    
+    <th>Bid Price</th>
+    <th>Info</th>
+    </tr>
+    
+    {% for row in bidlist %}
+    <tr>
+    <td>{{row.bid}}</td>
+    <td>{{row.pid}}</td>
+    <td>{{row.uid}}</td>
+    <td>{{row.bidprice}}</td>
+    <td>{{row.info}}</td>
+    </tr> 
+    {% endfor %}
+    
+    </table>
+    </center>
+
+
+{% endblock content %}    
+

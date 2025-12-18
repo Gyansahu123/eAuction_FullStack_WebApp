@@ -1,0 +1,41 @@
+<!-- templates/admin/nav.html -->
+<nav class="admin-nav">
+  <ul>
+    <li>
+      <a href="/myadmin/"><i class="fas fa-tachometer-alt"></i>Admin Home</a>
+    </li>
+    <li>
+      <a href="/myadmin/manageusers/"
+        ><i class="fas fa-users"></i>Manage Users</a
+      >
+    </li>
+    <li><a href="/myadmin/addcategory/">Add Category</a></li>
+     <li><a href="/myadmin/addsubcategory/">Add SubCategory</a></li>
+   
+
+    {% comment %} <li>
+			<span>Manage Category<b></b></span>
+				<ul>
+					<li><a href="/myadmin/addcategory/" >Add Category</a></li>
+					<li><a href="/myadmin/addsubcategory/" >Add SubCategory</a></li>
+				</ul>
+			</li> {% endcomment %}
+    <li>
+      <a href="/login/"><i class="fas fa-box"></i>Logout</a>
+    </li>
+    <li>
+      <a href=""><i class="fas fa-box"></i><span>settings</a>
+        
+
+    </li>
+
+    <li>
+      <a href="/myadmin/cpadmin/"><i class="fas fa-cog"></i>Change Password</a>
+    </li>
+    <li>
+      <a href="/myadmin/epadmin/"><i class="fas fa-cog"></i> Edit Password </a>
+    </li>
+  </ul>
+  <br class="clearfix" />
+</nav>
+<b>Welcome admin : {{sunm}}</b>

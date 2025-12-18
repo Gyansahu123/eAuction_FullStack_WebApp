@@ -1,0 +1,44 @@
+<!-- templates/user/user.html -->
+<!-- templates/user/home.html -->
+{% load static %}
+{% include 'userheader.html' %}
+{% include 'usernav.html' %}
+
+<main class="user-dashboard">
+  <div style="
+    background: #fdfefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    max-width: 900px;
+    margin: 40px auto;
+  ">
+    <h2 style="font-size: 2.2rem; color: #2c3e50; margin-bottom: 15px;">
+       Welcome to <span style="color: #28a745;">eAuction</span> User Panel
+    </h2>
+    <p style="text-align: justify; font-size: 1.05rem; line-height: 1.8;">
+      Hello and welcome! You are now logged in as a valued user of the eAuction platform.
+      Here, you can participate in exciting auctions, place bids on your favorite items, and track your activity in real-time.
+      <br><br>
+      Use the navigation menu to explore and take full advantage of:
+      <ul style="margin-left: 20px; line-height: 1.7;">
+        <li> Browsing live auctions and featured products</li>
+        <li> Placing and tracking your bids</li>
+        <li> Managing your account and profile details</li>
+        <li> Viewing your bid history and winning items</li>
+        <li> Receiving notifications and updates</li>
+      </ul>
+      <br>
+      Be ready to win your favorite products through smart bidding and stay ahead of the competition!
+      <br><br>
+      <strong>Good luck, and enjoy your bidding journey with eAuction! </strong>
+    </p>
+  </div>
+</main>
+
+
+
+
+{% include 'userfooter.html' %}

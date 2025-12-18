@@ -1,0 +1,239 @@
+{% load static %} {% include 'header.html' %} {% include 'nav.html' %} {%
+include 'slider.html' %}
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .inputf {
+    width: 100%;
+    height: 38px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .inputf:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    resize: vertical;
+  }
+
+  #btn {
+    height: 40px;
+    width: 150px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #btn:hover {
+    background-color: #0056b3;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  td {
+    padding: 10px;
+    vertical-align: top;
+  }
+</style>
+
+<div id="page">
+  <div id="content">
+    <div class="box container">
+      <h2>Register Here</h2>
+      <font color="blue">{{output}}</font>
+      <form method="post" action="/register/" onsubmit="return validationForm()">
+        {% csrf_token %}
+        <table cellspacing="10">
+          <tr>
+            <td><label for="name">Name</label></td>
+            <td>
+              <input class="inputf" type="text" name="name"
+                id="name"
+                placeholder="Enter your full name"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="email">Email</label></td>
+            <td>
+              <input
+                class="inputf"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+              <input
+                class="inputf"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Create a password"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="mobile">Mobile</label></td>
+            <td>
+              <input
+                class="inputf"
+                type="text"
+                name="mobile"
+                id="mobile"
+                placeholder="Enter mobile number"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="address">Address</label></td>
+            <td>
+              <textarea
+                name="address"
+                id="address"
+                rows="4"
+                placeholder="Enter your address"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="city">City</label></td>
+            <td>
+              <select class="inputf" name="city" id="city" required>
+                <option value="">Select City</option>
+                <option>Indore</option>
+                <option>Bhopal</option>
+                <option>Jabalpur</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label>Gender</label></td>
+            <td>
+              <label
+                ><input type="radio" name="gender" value="male" required />
+                Male</label
+              >&nbsp;&nbsp;
+              <label
+                ><input type="radio" name="gender" value="female" required />
+                Female</label
+              >
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center">
+              <input id="btn" type="submit" value="Register" />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <br class="clearfix" />
+  </div>
+
+  
+</div>
+
+
+<script>
+  function validateForm() {
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var password = document.getElementById("password").value;
+    var mobile = document.getElementById("mobile").value.trim();
+    var address = document.getElementById("address").value.trim();
+    var city = document.getElementById("city").value;
+    var genderMale = document.querySelector('input[name="gender"][value="male"]');
+    var genderFemale = document.querySelector('input[name="gender"][value="female"]');
+
+    // Name validation
+    if (name === "") {
+      alert("Please enter your name.");
+      return false;
+    }
+
+    // Email validation
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+      alert("Please enter a valid email address.");
+      return false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return false;
+    }
+
+    // Mobile validation
+    var mobilePattern = /^[0-9]{10}$/;
+    if (!mobile.match(mobilePattern)) {
+      alert("Mobile number must be exactly 10 digits.");
+      return false;
+    }
+
+    // Address validation
+    if (address === "") {
+      alert("Please enter your address.");
+      return false;
+    }
+
+    // City validation
+    if (city === "") {
+      alert("Please select your city.");
+      return false;
+    }
+
+    // Gender validation
+    if (!genderMale.checked && !genderFemale.checked) {
+      alert("Please select your gender.");
+      return false;
+    }
+
+    return true; // All validations passed
+  }
+</script>
+
+
+{% include 'footer.html' %}

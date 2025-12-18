@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'userheader.html' %}
+{% include 'usernav.html' %}
+
+{% block content %}    
+
+<h1>Bid Product Here</h1>
+
+{% if bstatus %}
+<form method="post" action="/user/bid/" >
+{% csrf_token http://localhost:8000/user/viewproduct/?cnm=Plastic&scnm=Scrap%}    
+<table border="2" cellspacing="10" cellpadding="10">
+<tr>
+<td><b>Product ID</b></td>
+<td>
+{{pDetails.pid}}
+<input type="hidden" name="pid" value="{{pDetails.pid}}" />
+</td>    
+</tr>    
+<tr>
+<td><b>Product Title</b></td>
+<td>{{pDetails.title}}</td>    
+</tr>
+<tr>
+<td><b>Base Price</b></td>
+<td>{{pDetails.baseprice}}</td>    
+</tr>
+<tr>
+<td><b>Current Bid Price</b></td>
+<td>{{cbprice}}</td>    
+</tr>
+<tr>
+<td><b>Enter Your Bid Price</b></td>
+<td><input type="text" name="bidprice" /></td>    
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="Bid Product" /></td>    
+</tr>
+</table>
+</form>
+{% else %}
+<h2>Bid completed</h2>
+<a href="/user/bidlist/?pid={{pDetails.pid}}">Click to get Bidding List</a>
+{% endif %}
+
+{% endblock content %} 
+
