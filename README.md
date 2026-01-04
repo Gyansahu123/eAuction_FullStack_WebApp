@@ -85,7 +85,7 @@ EAUCTION_PROJECT/
 ## 📬 Contact
 - 📧 Email: gyanu8473@gmail.com  
 - 💼 LinkedIn: [https://www.linkedin.com/in/gyansahu/](https://www.linkedin.com/in/gyansahu/)  
-- 🌐 Portfolio: [https://your-portfolio.com](https://your-portfolio.com)  
+- 🌐 Portfolio: [https://gyansahu123.github.io/fullStack_python_django_Portfolio/]  
 
 ---
 
